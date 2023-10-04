@@ -7,8 +7,7 @@ Description
 
 ## Implementation
 
-Which features you included
-
+- A unique pixelated font
 
 ## References
 
