@@ -1,7 +1,14 @@
-[gd_scene format=3 uid="uid://dywcp8o4vsibs"]
+[gd_scene load_steps=3 format=3 uid="uid://dywcp8o4vsibs"]
+
+[ext_resource type="Texture2D" uid="uid://dba5s7voll35w" path="res://Assets/ballGrey.png" id="1_nvg73"]
+[ext_resource type="Texture2D" uid="uid://dqulth6pla3g7" path="res://Assets/ballBlue.png" id="2_5qx7o"]
 
 [node name="Indicator" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nvg73")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_5qx7o")
