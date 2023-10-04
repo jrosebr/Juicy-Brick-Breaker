@@ -8,6 +8,10 @@ Description
 ## Implementation
 
 - A unique pixelated font
+- Colored the Bricks
+- Animated the Bricks to drop into place
+- Animated the Ball when it comes into contact with the Paddle, Brick, or Wall
+- Added particle effects to the Paddle and Bricks when the ball hits them
 
 ## References
 
@@ -16,3 +20,4 @@ Description
 
 
 ## Created by
+Jack Rosebrock
