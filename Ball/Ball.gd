@@ -12,9 +12,11 @@ var wobble_max = 5
 var wobble_direction = Vector2.ZERO
 var decay_wobble = 0.15
 
+var distort_effect = 0.0002
+var h_rotate = 0.0
+
 var tween
 
-var distort_effect = 0.0002
 
 func _ready():
 	contact_monitor = true
@@ -57,7 +59,20 @@ func _integrate_forces(state):
 	if state.linear_velocity.length() > max_speed:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed
 
+func comet():
+	h_rotate = wrapf(h_rotate * 0.01, 0, 1)
+	var Comet_Container = get_node_or_null("/root/Game/Comet_Container")
+	if Comet_Container != null:
+		var sprite = $Images/Sprite.duplicate()
+		sprite.global_position = global_position
+		sprite.modulate.s = 0.6
+		sprite.modulate.h = h_rotate
+		
+		Comet_Container.add_child(sprite)
+
 func die():
+	var die_sound = get_node("/root/Game/Die_Sound")
+	die_sound.play()
 	queue_free()
 
 func wobble():

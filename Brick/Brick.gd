@@ -9,6 +9,11 @@ var time_rotate = 1.0
 var time_a = 0.8
 var time_s = 1.2
 var time_v = 1.5
+
+var sway_amplitude = 3.0
+var sway_initial_position = Vector2.ZERO
+var sway_randomizer = Vector2.ZERO
+
 var tween
 
 var powerup_prob = 0.1
@@ -37,15 +42,26 @@ func _ready():
 		$ColorRect.color = Color8(190,75,219)
 	else:
 		$ColorRect.color = Color8(134,142,150)
+	
+	
+	sway_initial_position = $ColorRect.position
+	sway_randomizer = Vector2(randf() * 6 - 3.0, randf() * 6 - 3.0)
 
 func _physics_process(_delta):
 	if dying and not $Confetti.emitting and not tween:
 		queue_free()
+	
+	var pos_x = sin(Global.sway_index) * (sway_amplitude + sway_randomizer.x)
+	var pos_y = cos(Global.sway_index) * (sway_amplitude + sway_randomizer.y)
+	$ColorRect.position = Vector2(sway_initial_position.x + pos_x, sway_initial_position.y + pos_y)
 
 func hit(_ball):
 	die()
 
 func die():
+	var brick_sound = get_node("/root/Game/Brick_Sound")
+	brick_sound.play()
+	
 	dying = true
 	collision_layer = 0
 	Global.update_score(score)

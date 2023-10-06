@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=19 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
+[ext_resource type="Script" path="res://Ball/Comet_Container.gd" id="2_w7682"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ci5q3vmuimsfr" path="res://UI/Pause_Menu.tscn" id="5"]
@@ -10,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
 [ext_resource type="Script" path="res://UI/Camera.gd" id="10_tilyd"]
+[ext_resource type="AudioStream" uid="uid://cv21qngtcurl8" path="res://Assets/Normal Music.wav" id="11_621u6"]
+[ext_resource type="AudioStream" uid="uid://dkl7wb2f1k63e" path="res://Assets/Wall.wav" id="12_5o286"]
+[ext_resource type="AudioStream" uid="uid://dahn4eyiqmtlm" path="res://Assets/Paddle.wav" id="13_ybtog"]
+[ext_resource type="AudioStream" uid="uid://bsotorpduo75n" path="res://Assets/die.wav" id="14_8alxr"]
+[ext_resource type="AudioStream" uid="uid://c0c7hxdt0mfpn" path="res://Assets/Brick.wav" id="15_bhkmv"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -19,6 +25,9 @@ size = Vector2(1224, 200)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
+
+[node name="Comet_Container" type="Node2D" parent="."]
+script = ExtResource("2_w7682")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 
@@ -82,5 +91,25 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(576, 400)
 script = ExtResource("10_tilyd")
+
+[node name="Normal_Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_621u6")
+volume_db = -6.5
+autoplay = true
+
+[node name="Wall_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_5o286")
+volume_db = 16.5
+
+[node name="Paddle_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_ybtog")
+
+[node name="Die_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_8alxr")
+volume_db = 16.5
+
+[node name="Brick_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_bhkmv")
+volume_db = 16.5
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]

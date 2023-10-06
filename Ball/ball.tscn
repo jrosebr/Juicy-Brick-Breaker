@@ -22,7 +22,7 @@ shape = SubResource("1")
 
 [node name="Images" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Images"]
+[node name="Sprite" type="Sprite2D" parent="Images"]
 texture = ExtResource("2_xc2g2")
 
 [node name="Highlight" type="Sprite2D" parent="Images"]

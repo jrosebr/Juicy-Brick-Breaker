@@ -12,6 +12,9 @@ var starting_in = 0
 var fever_decay = 0.1
 var feverish = false
 
+var sway_index = 0
+var sway_period = 0.1
+
 
 var default_starting_in = 4
 var default_lives = 5
