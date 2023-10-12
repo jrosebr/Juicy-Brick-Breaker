@@ -33,8 +33,8 @@ func hit(_ball):
 	tween.tween_property($Images/Highlight, "scale", Vector2(1, 1), time_highlight_size).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 
 
-func powerup(payload):
-	for c in $Powerups.get_children():
-		if c.type == payload.type:
-			c.queue_free()
-	$Powerups.call_deferred("add_child", payload)
+#func powerup(payload):
+#	for c in $Powerups.get_children():
+#		if c.type == payload.type:
+#			c.queue_free()
+#	$Powerups.call_deferred("add_child", payload)

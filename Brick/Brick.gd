@@ -50,10 +50,6 @@ func _ready():
 func _physics_process(_delta):
 	if dying and not $Confetti.emitting and not tween:
 		queue_free()
-	
-	var pos_x = sin(Global.sway_index) * (sway_amplitude + sway_randomizer.x)
-	var pos_y = cos(Global.sway_index) * (sway_amplitude + sway_randomizer.y)
-	$ColorRect.position = Vector2(sway_initial_position.x + pos_x, sway_initial_position.y + pos_y)
 
 func hit(_ball):
 	die()
