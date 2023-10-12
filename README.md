@@ -8,13 +8,16 @@ Description
 ## Implementation
 
 - Changed the colors
-- Animated the bricks falling into place, and falling off screen when hit
+- Animated the bricks falling into place, and falling offscreen when hit
 - Animated the Paddle and Ball when they are hit
+- Animated the Title and Buttons fading onto the screen
 - Added particle effects to the Paddle and Bricks when the ball hits them
 - Shake the screen when the player loses a life
 - Added sound effects for when the ball hits the other objects
 - Added music to overplay during gameplay
 - Added shaders to the main menu, background, and fever bar.
+- Added a pair of eyes that follow the ball
+- Added a mouth that will frown when the ball falls offscreen and smile when as the ball reaches the top of the screen
 
 ## References
  * [Juice it or lose it — a talk by Martin Jonasson & Petri Purho](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
